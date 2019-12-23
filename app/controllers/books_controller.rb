@@ -33,12 +33,11 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
-      @book = Book.find(params[:id])
-    if @book.update()
-      puts "aルート"
+      book = Book.find(params[:id])
+    if book.update(book_params)
       redirect_to book_path(book.id), notice: 'Book was successfully updated.'
     else
-      puts "bルート"
+
       render :edit
     end
   end
